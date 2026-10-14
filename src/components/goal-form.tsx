@@ -38,7 +38,7 @@ export function GoalFormDialog({ open, onOpenChange, goal }: { open: boolean; on
     e.preventDefault();
     const errs: Record<string, string> = {};
     let t = Number(target);
-    if (metric === "rank") t = RANKS.indexOf(rank);
+    if (metric === "rank") t = RANKS.indexOf(rank ?? "");
     else if (target.trim() === "" || !isFinite(t) || t <= 0) errs.target = "Enter a positive target value";
     else if ((metric === "hs" || metric === "map_winrate") && t > 100) errs.target = "Percentages can't exceed 100";
     else if (metric === "kd" && t > 5) errs.target = "A K/D above 5 isn't a realistic target";
