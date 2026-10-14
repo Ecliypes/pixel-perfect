@@ -18,7 +18,7 @@ function Wordmark() {
   return (
     <Link to="/" className="flex items-baseline gap-1.5 px-2">
       <span className="text-[19px] font-semibold tracking-[-0.04em] text-foreground">diff</span>
-      <span className="h-1.5 w-1.5 translate-y-[-1px] rounded-[1px] bg-primary" />
+      <span className="neon-glow h-1.5 w-1.5 translate-y-[-1px] rounded-[1px] bg-primary" />
     </Link>
   );
 }
@@ -39,7 +39,7 @@ function NavList({ onNavigate }: { onNavigate?: () => void }) {
               active ? "bg-sidebar-accent text-sidebar-accent-foreground" : "text-muted-foreground hover:bg-sidebar-accent/60 hover:text-foreground",
             )}
           >
-            {active && <span className="absolute -left-3 top-1.5 bottom-1.5 w-[2px] rounded-full bg-primary" />}
+            {active && <span className="neon-glow absolute -left-3 top-1.5 bottom-1.5 w-[2px] rounded-full bg-primary" />}
             <Icon className="h-4 w-4" strokeWidth={1.75} />
             {label}
           </Link>

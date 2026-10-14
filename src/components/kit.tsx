@@ -48,7 +48,7 @@ export function ResultTag({ r, score }: { r: Result; score?: string }) {
   const label = r === "win" ? "Win" : r === "loss" ? "Loss" : "Draw";
   return (
     <span className="inline-flex items-center gap-2">
-      <span className={cn("h-4 w-[3px] rounded-full", r === "win" ? "bg-positive" : r === "loss" ? "bg-negative" : "bg-neutral")} />
+      <span className={cn("h-4 w-[3px] rounded-full", r === "win" ? "neon-glow bg-positive" : r === "loss" ? "neon-glow bg-negative" : "bg-neutral")} />
       <span className={cn("text-[13px] font-medium", r === "win" ? "text-positive" : r === "loss" ? "text-negative" : "text-neutral")}>{label}</span>
       {score && <span className="tabular text-[12px] text-muted-foreground">{score}</span>}
     </span>
