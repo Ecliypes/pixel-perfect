@@ -39,7 +39,7 @@ export function TrendChart({ data, lines, height = 220, unit, reference, domain 
         <YAxis {...axis} domain={domain ?? ["auto", "auto"]} width={44} />
         <Tooltip
           cursor={{ stroke: "var(--color-border-strong)" }}
-          content={(p) => <TooltipBox {...(p as never)} unit={unit} label={p.label ? format(new Date(p.label as string), "MMM d, HH:mm") : undefined} />}
+          content={(p) => <TooltipBox {...(p as unknown as object)} unit={unit} label={p.label ? format(new Date(p.label as string), "MMM d, HH:mm") : undefined} />}
         />
         {reference != null && <ReferenceLine y={reference} stroke="var(--color-border-strong)" strokeDasharray="3 3" />}
         {lines.map((l) => (
@@ -69,7 +69,7 @@ export function HBarChart({ data, dataKey, name, unit, height }: { data: Record<
         <CartesianGrid stroke="var(--chart-grid)" horizontal={false} />
         <XAxis type="number" {...axis} domain={[0, 100]} />
         <YAxis type="category" dataKey="name" {...axis} width={72} stroke="var(--color-muted-foreground)" />
-        <Tooltip cursor={{ fill: "var(--color-accent)" }} content={(p) => <TooltipBox {...(p as never)} unit={unit} />} />
+        <Tooltip cursor={{ fill: "var(--color-accent)" }} content={(p) => <TooltipBox {...(p as unknown as object)} unit={unit} />} />
         <ReferenceLine x={50} stroke="var(--color-border-strong)" strokeDasharray="3 3" />
         <RBar dataKey={dataKey} name={name} fill="var(--color-chart-2)" radius={[0, 3, 3, 0]} maxBarSize={14} isAnimationActive={false} />
       </BarChart>

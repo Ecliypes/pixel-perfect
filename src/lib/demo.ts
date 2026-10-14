@@ -21,9 +21,9 @@ export function buildDemoState(now = Date.now()): AppState {
   let t = now - 1000 * 60 * 60 * 3;
   for (let i = 0; i < total; i++) {
     const progress = (total - i) / total; // older => higher, so improvement over time
-    const map = DEMO_MAPS[Math.floor(rand() * DEMO_MAPS.length)];
-    const agent = DEMO_AGENTS[Math.floor(rand() * DEMO_AGENTS.length)];
-    const skill = 0.5 + MAP_SKILL[map] - progress * 0.12 + (rand() - 0.5) * 0.5;
+    const map = DEMO_MAPS[Math.floor(rand() * DEMO_MAPS.length)] ?? "Ascent";
+    const agent = DEMO_AGENTS[Math.floor(rand() * DEMO_AGENTS.length)] ?? "Jett";
+    const skill = 0.5 + (MAP_SKILL[map] ?? 0) - progress * 0.12 + (rand() - 0.5) * 0.5;
     const win = skill > 0.45;
     const loserRounds = Math.floor(rand() * 11) + 2;
     const draw = rand() < 0.03;
